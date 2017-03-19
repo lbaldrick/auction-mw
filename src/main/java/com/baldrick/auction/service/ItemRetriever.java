@@ -1,17 +1,17 @@
 package com.baldrick.auction.service;
 
-import com.baldrick.auction.dao.AuctionDao;
 import com.baldrick.auction.dto.ItemsSearchResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import com.baldrick.auction.dao.ItemAuctionDao;
 
 @Service
 public class ItemRetriever {
     
     @Autowired
-    private final AuctionDao datasource;
+    private final ItemAuctionDao datasource;
 
-    public ItemRetriever(AuctionDao datasource) {
+    public ItemRetriever(ItemAuctionDao datasource) {
         this.datasource = datasource;
     }
     
