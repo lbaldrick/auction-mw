@@ -1,51 +1,52 @@
- package com.baldrick.auction.model;
+package com.baldrick.auction.model;
 
 import java.util.List;
 
 public class ItemAuctionDetails {
-    private final String id;
-    private final ItemDetails itemDetails;
-    private final double currentBid;
-    private final long expiryTimestamp;
-    private final double buyNowPrice;
-    private final List<Bid> history;
-    private final User seller;
 
-    public ItemAuctionDetails(String id, ItemDetails itemDetails, double currentBid, long expiryTimestamp, double buyNowPrice, List<Bid> history, User seller) {
-        this.id = id;
-        this.itemDetails = itemDetails;
-        this.currentBid = currentBid;
-        this.expiryTimestamp = expiryTimestamp;
-        this.buyNowPrice = buyNowPrice;
-        this.history = history;
-        this.seller = seller;
-    }
+  private final String id;
+  private final ItemDetails itemDetails;
+  private final double currentBid;
+  private final long expiryTimestamp;
+  private final double buyNowPrice;
+  private final List<Bid> history;
+  private final User seller;
 
-    public String getId() {
-        return id;
-    }
+  public ItemAuctionDetails(String id, ItemDetails itemDetails, double currentBid, long expiryTimestamp, double buyNowPrice, List<Bid> history, User seller) {
+    this.id = id;
+    this.itemDetails = itemDetails;
+    this.currentBid = currentBid;
+    this.expiryTimestamp = expiryTimestamp;
+    this.buyNowPrice = buyNowPrice;
+    this.history = history;
+    this.seller = seller;
+  }
 
-    public ItemDetails getItemDetails() {
-        return itemDetails;
-    }
+  public String getId() {
+    return id;
+  }
 
-    public double getCurrentBid() {
-        return currentBid;
-    }
+  public ItemDetails getItemDetails() {
+    return itemDetails;
+  }
 
-    public long getExpiryTimestamp() {
-        return expiryTimestamp;
-    }
+  public double getCurrentBid() {
+    return currentBid;
+  }
 
-    public double getBuyNowPrice() {
-        return buyNowPrice;
-    }
+  public long getExpiryTimestamp() {
+    return expiryTimestamp;
+  }
 
-    public List<Bid> getHistory() {
-        return history;
-    }
+  public double getBuyNowPrice() {
+    return buyNowPrice;
+  }
 
-    public User getSeller() {
-        return seller;
-    }
+  public List<Bid> getHistory() {
+    return history;
+  }
+
+  public User getSeller() {
+    return seller;
+  }
 }

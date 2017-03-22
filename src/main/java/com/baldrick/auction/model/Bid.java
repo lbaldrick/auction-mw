@@ -1,39 +1,38 @@
-
 package com.baldrick.auction.model;
 
-
 public class Bid {
-    private Long timestamp;
-    private String userId;
-    private double bid;
 
-    public Bid(String userId, Long timestamp, double bid) {
-        this.timestamp = timestamp;
-        this.userId = userId;
-        this.bid = bid;
-    }  
+  private Long timestamp;
+  private String userId;
+  private double bid;
 
-    public Long getTimestamp() {
-        return timestamp;
-    }
+  public Bid(String userId, Long timestamp, double bid) {
+    this.timestamp = timestamp;
+    this.userId = userId;
+    this.bid = bid;
+  }
 
-    public void setTimestamp(Long timestamp) {
-        this.timestamp = timestamp;
-    }
+  public Long getTimestamp() {
+    return timestamp;
+  }
 
-    public String getUserId() {
-        return userId;
-    }
+  public void setTimestamp(Long timestamp) {
+    this.timestamp = timestamp;
+  }
 
-    public void setUserId(String userId) {
-        this.userId = userId;
-    }
+  public String getUserId() {
+    return userId;
+  }
 
-    public double getBid() {
-        return bid;
-    }
+  public void setUserId(String userId) {
+    this.userId = userId;
+  }
 
-    public void setBid(double bid) {
-        this.bid = bid;
-    }
+  public double getBid() {
+    return bid;
+  }
+
+  public void setBid(double bid) {
+    this.bid = bid;
+  }
 }

@@ -1,58 +1,58 @@
 package com.baldrick.auction.model;
 
-
 public class Feedback {
-    private double deliverTimeRating;
-    private double accuracyRating;
-    private double communicationRating;
-    private double packagingRating;
-    private String comment;
 
-    public Feedback(double deliverTimeRating, double accuracyRating, double communicationRating, double packagingRating, String comment) {
-        this.deliverTimeRating = deliverTimeRating;
-        this.accuracyRating = accuracyRating;
-        this.communicationRating = communicationRating;
-        this.packagingRating = packagingRating;
-        this.comment = comment;
-    }
+  private double deliverTimeRating;
+  private double accuracyRating;
+  private double communicationRating;
+  private double packagingRating;
+  private String comment;
 
-    public double getDeliverTimeRating() {
-        return deliverTimeRating;
-    }
+  public Feedback(double deliverTimeRating, double accuracyRating, double communicationRating, double packagingRating, String comment) {
+    this.deliverTimeRating = deliverTimeRating;
+    this.accuracyRating = accuracyRating;
+    this.communicationRating = communicationRating;
+    this.packagingRating = packagingRating;
+    this.comment = comment;
+  }
 
-    public void setDeliverTimeRating(double deliverTimeRating) {
-        this.deliverTimeRating = deliverTimeRating;
-    }
+  public double getDeliverTimeRating() {
+    return deliverTimeRating;
+  }
 
-    public double getAccuracyRating() {
-        return accuracyRating;
-    }
+  public void setDeliverTimeRating(double deliverTimeRating) {
+    this.deliverTimeRating = deliverTimeRating;
+  }
 
-    public void setAccuracyRating(double accuracyRating) {
-        this.accuracyRating = accuracyRating;
-    }
+  public double getAccuracyRating() {
+    return accuracyRating;
+  }
 
-    public double getCommunicationRating() {
-        return communicationRating;
-    }
+  public void setAccuracyRating(double accuracyRating) {
+    this.accuracyRating = accuracyRating;
+  }
 
-    public void setCommunicationRating(double communicationRating) {
-        this.communicationRating = communicationRating;
-    }
+  public double getCommunicationRating() {
+    return communicationRating;
+  }
 
-    public double getPackagingRating() {
-        return packagingRating;
-    }
+  public void setCommunicationRating(double communicationRating) {
+    this.communicationRating = communicationRating;
+  }
 
-    public void setPackagingRating(double packagingRating) {
-        this.packagingRating = packagingRating;
-    }
+  public double getPackagingRating() {
+    return packagingRating;
+  }
 
-    public String getComment() {
-        return comment;
-    }
+  public void setPackagingRating(double packagingRating) {
+    this.packagingRating = packagingRating;
+  }
 
-    public void setComment(String comment) {
-        this.comment = comment;
-    }   
+  public String getComment() {
+    return comment;
+  }
+
+  public void setComment(String comment) {
+    this.comment = comment;
+  }
 }

@@ -20,4 +20,10 @@
       <beans:constructor-arg value="${mongodb.url}"/>
       <beans:constructor-arg value="${mongodb.port}"/>
    </beans:bean>
+   
+   <beans:bean id="mongodbItemAuctionDao" class="com.baldrick.auction.dao.MongoItemAuctionDao">
+      <beans:constructor-arg value="${mongodb.auction.db.name}"/>
+      <beans:constructor-arg value="${mongodb.auction.collection}"/>
+      <beans:constructor-arg ref="mongodbClient"/>
+   </beans:bean>
 </beans:beans>
