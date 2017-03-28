@@ -1,7 +1,7 @@
 package com.baldrick.auction.controller;
 
 import com.baldrick.auction.dto.ItemsSearchResponse;
-import com.baldrick.auction.service.ItemRetriever;
+import com.baldrick.auction.store.ItemsStore;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,15 +13,15 @@ import org.springframework.web.bind.annotation.RestController;
 public class ItemsController {
 
   @Autowired
-  private final ItemRetriever itemRetrieverService;
+  private final ItemsStore itemsStore;
 
-  public ItemsController(ItemRetriever itemRetrieverService) {
-    this.itemRetrieverService = itemRetrieverService;
+  public ItemsController(ItemsStore itemsStore) {
+    this.itemsStore = itemsStore;
   }
 
   @RequestMapping(value = "/{query}", method = RequestMethod.GET)
   public ItemsSearchResponse search(@PathVariable String query) {
-    return this.itemRetrieverService.search(query);
+    return new ItemsSearchResponse(this.itemsStore.search(query));
   }
 
   @RequestMapping(value = "/id/{id}", method = RequestMethod.GET)

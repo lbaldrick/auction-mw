@@ -82,4 +82,9 @@ public class MongoItemAuctionDao implements ItemAuctionDao {
     return col.find(in("id", ids));
   }
 
+  @Override
+  public FindObservable<Document> getAllAuctionItems() {
+    MongoCollection<Document> col = getCollection();
+    return col.find();
+  }
 }

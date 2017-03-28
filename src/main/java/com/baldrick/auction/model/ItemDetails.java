@@ -2,11 +2,13 @@ package com.baldrick.auction.model;
 
 public class ItemDetails {
 
-  private final String displayName;
-  private final String description;
-  private final String summary;
-  private final ItemSpecifics itemSpecifics;
+  private String displayName;
+  private String description;
+  private String summary;
+  private ItemSpecifics itemSpecifics;
 
+  public ItemDetails() {};
+  
   public ItemDetails(String displayName, String description, String summary, ItemSpecifics itemSpecifics) {
     this.displayName = displayName;
     this.description = description;
@@ -29,4 +31,20 @@ public class ItemDetails {
   public ItemSpecifics getItemSpecifics() {
     return itemSpecifics;
   }
+
+  public void setDisplayName(String displayName) {
+    this.displayName = displayName;
+  }
+
+  public void setDescription(String description) {
+    this.description = description;
+  }
+
+  public void setSummary(String summary) {
+    this.summary = summary;
+  }
+
+  public void setItemSpecifics(ItemSpecifics itemSpecifics) {
+    this.itemSpecifics = itemSpecifics;
+  } 
 }

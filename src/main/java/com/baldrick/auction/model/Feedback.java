@@ -7,6 +7,8 @@ public class Feedback {
   private double communicationRating;
   private double packagingRating;
   private String comment;
+  
+  public Feedback() {};
 
   public Feedback(double deliverTimeRating, double accuracyRating, double communicationRating, double packagingRating, String comment) {
     this.deliverTimeRating = deliverTimeRating;

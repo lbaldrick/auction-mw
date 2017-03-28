@@ -5,6 +5,8 @@ public class Bid {
   private Long timestamp;
   private String userId;
   private double bid;
+  
+  public Bid() {};
 
   public Bid(String userId, Long timestamp, double bid) {
     this.timestamp = timestamp;

@@ -18,4 +18,6 @@ public interface ItemAuctionDao {
   public Observable<Document> getAuctionItem(String id);
 
   public FindObservable<Document> getAuctionItems(List<String> ids);
+  
+  public FindObservable<Document> getAllAuctionItems();
 }

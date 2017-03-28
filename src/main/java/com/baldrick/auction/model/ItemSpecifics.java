@@ -11,6 +11,8 @@ public class ItemSpecifics {
   private String location;
   private String sellerNotes;
 
+  public ItemSpecifics() {};
+          
   public ItemSpecifics(String condition, String model, List<String> features, Long purchasedDate, String location, String sellerNotes) {
     this.condition = condition;
     this.model = model;

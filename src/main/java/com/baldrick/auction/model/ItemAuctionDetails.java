@@ -4,13 +4,15 @@ import java.util.List;
 
 public class ItemAuctionDetails {
 
-  private final String id;
-  private final ItemDetails itemDetails;
-  private final double currentBid;
-  private final long expiryTimestamp;
-  private final double buyNowPrice;
-  private final List<Bid> history;
-  private final User seller;
+  private String id;
+  private ItemDetails itemDetails;
+  private double currentBid;
+  private long expiryTimestamp;
+  private double buyNowPrice;
+  private List<Bid> history;
+  private User seller;
+  
+  public ItemAuctionDetails() {};
 
   public ItemAuctionDetails(String id, ItemDetails itemDetails, double currentBid, long expiryTimestamp, double buyNowPrice, List<Bid> history, User seller) {
     this.id = id;
@@ -48,5 +50,33 @@ public class ItemAuctionDetails {
 
   public User getSeller() {
     return seller;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public void setItemDetails(ItemDetails itemDetails) {
+    this.itemDetails = itemDetails;
+  }
+
+  public void setCurrentBid(double currentBid) {
+    this.currentBid = currentBid;
+  }
+
+  public void setExpiryTimestamp(long expiryTimestamp) {
+    this.expiryTimestamp = expiryTimestamp;
+  }
+
+  public void setBuyNowPrice(double buyNowPrice) {
+    this.buyNowPrice = buyNowPrice;
+  }
+
+  public void setHistory(List<Bid> history) {
+    this.history = history;
+  }
+
+  public void setSeller(User seller) {
+    this.seller = seller;
   }
 }

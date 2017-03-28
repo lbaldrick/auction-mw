@@ -9,6 +9,8 @@ public class User {
   private Double rating;
   private List<Feedback> feedback;
 
+  public User() {};
+  
   public User(String id, String username, Double rating, List<Feedback> feedback) {
     this.id = id;
     this.username = username;
