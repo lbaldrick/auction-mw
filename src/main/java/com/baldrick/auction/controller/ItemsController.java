@@ -1,9 +1,11 @@
 package com.baldrick.auction.controller;
 
+import com.baldrick.auction.dto.ItemCreateRequest;
 import com.baldrick.auction.dto.ItemsSearchResponse;
 import com.baldrick.auction.store.ItemsStore;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -27,6 +29,11 @@ public class ItemsController {
   @RequestMapping(value = "/id/{id}", method = RequestMethod.GET)
   public String getItem(@PathVariable String query) {
     return query;
+  }
+  
+  @RequestMapping(value = "/create", method = RequestMethod.POST)
+  public void createItem(@RequestBody ItemCreateRequest item) {
+    System.out.println("create " + item.toString());
   }
 
 }
