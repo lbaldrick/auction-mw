@@ -1,7 +1,5 @@
 package com.baldrick.auction.service;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 import com.baldrick.auction.dao.ItemAuctionDao;
 import com.baldrick.auction.model.ItemAuctionDetails;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -11,10 +9,8 @@ import java.util.Map;
 import java.util.Optional;
 import org.bson.Document;
 
-@Service
 public class ItemRetriever {
 
-  @Autowired
   private final ItemAuctionDao datasource;
 
   public ItemRetriever(ItemAuctionDao datasource) {

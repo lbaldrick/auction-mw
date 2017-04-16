@@ -18,7 +18,7 @@
       <beans:property name="location" value="classpath:app.properties"/>
    </beans:bean>
     
-    <beans:bean id="mongodbClient" class="com.mongodb.MongoClient">
+    <beans:bean id="mongodbClient" class="com.mongodb.rx.client.MongoClient">
       <beans:constructor-arg value="${mongodb.url}"/>
       <beans:constructor-arg value="${mongodb.port}"/>
    </beans:bean>
@@ -27,5 +27,17 @@
       <beans:constructor-arg value="${mongodb.auction.db.name}"/>
       <beans:constructor-arg value="${mongodb.auction.collection}"/>
       <beans:constructor-arg ref="mongodbClient"/>
+   </beans:bean>
+   
+   <beans:bean id="itemRetriever" class="com.baldrick.auction.service.ItemRetriever">
+      <beans:constructor-arg ref="mongodbItemAuctionDao"/>
+   </beans:bean>
+   
+   <beans:bean id="searchStoreIndex" class="com.baldrick.auction.store.SearchStoreIndex">
+   </beans:bean>
+   
+   <beans:bean id="itemsStore" class="com.baldrick.auction.store.ItemsStore">
+      <beans:constructor-arg ref="itemRetriever"/>
+      <beans:constructor-arg ref="searchStoreIndex"/>
    </beans:bean>
 </beans:beans>

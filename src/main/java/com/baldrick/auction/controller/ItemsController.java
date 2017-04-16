@@ -15,11 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class ItemsController {
 
   @Autowired
-  private final ItemsStore itemsStore;
-
-  public ItemsController(ItemsStore itemsStore) {
-    this.itemsStore = itemsStore;
-  }
+  private ItemsStore itemsStore;
 
   @RequestMapping(value = "/{query}", method = RequestMethod.GET)
   public ItemsSearchResponse search(@PathVariable String query) {
