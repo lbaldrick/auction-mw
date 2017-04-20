@@ -3,11 +3,9 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:beans="http://www.springframework.org/schema/beans"
     xmlns:context="http://www.springframework.org/schema/context"
-    xmlns:mongo="http://www.springframework.org/schema/data/mongo"
     xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
         http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
-        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
-        http://www.springframework.org/schema/data/mongo http://www.springframework.org/schema/data/spring-mongo-1.0.xsd">
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
  
     <!-- Enables the Spring MVC @Controller programming model -->
     <annotation-driven />
@@ -17,16 +15,10 @@
     <beans:bean id="appProperties" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
       <beans:property name="location" value="classpath:app.properties"/>
    </beans:bean>
-    
-    <beans:bean id="mongodbClient" class="com.mongodb.rx.client.MongoClient">
-      <beans:constructor-arg value="${mongodb.url}"/>
-      <beans:constructor-arg value="${mongodb.port}"/>
-   </beans:bean>
    
    <beans:bean id="mongodbItemAuctionDao" class="com.baldrick.auction.dao.MongoItemAuctionDao">
       <beans:constructor-arg value="${mongodb.auction.db.name}"/>
       <beans:constructor-arg value="${mongodb.auction.collection}"/>
-      <beans:constructor-arg ref="mongodbClient"/>
    </beans:bean>
    
    <beans:bean id="itemRetriever" class="com.baldrick.auction.service.ItemRetriever">

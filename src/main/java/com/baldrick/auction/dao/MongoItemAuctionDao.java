@@ -11,6 +11,7 @@ import com.mongodb.rx.client.MongoClient;
 import com.mongodb.rx.client.MongoCollection;
 import com.mongodb.rx.client.MongoDatabase;
 import com.mongodb.rx.client.Success;
+import com.mongodb.rx.client.MongoClients;
 import java.util.List;
 import java.util.Optional;
 import org.bson.Document;
@@ -26,10 +27,10 @@ public class MongoItemAuctionDao implements ItemAuctionDao {
   private MongoClient mongoClient;
   private MongoCollection<Document> collection;
 
-  public MongoItemAuctionDao(String databaseName, String collectionName, MongoClient mongoClient) {
+  public MongoItemAuctionDao(String databaseName, String collectionName) {
     this.databaseName = databaseName;
     this.collectionName = collectionName;
-    this.mongoClient = mongoClient;
+    this.mongoClient = MongoClients.create("mongodb://localhost");
   }
 
   public void closeConnection() {

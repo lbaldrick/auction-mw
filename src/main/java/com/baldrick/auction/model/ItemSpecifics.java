@@ -7,13 +7,13 @@ public class ItemSpecifics {
   private String condition;
   private String model;
   private List<String> features;
-  private Long purchasedDate;
+  private String purchasedDate;
   private String location;
   private String sellerNotes;
 
   public ItemSpecifics() {};
           
-  public ItemSpecifics(String condition, String model, List<String> features, Long purchasedDate, String location, String sellerNotes) {
+  public ItemSpecifics(String condition, String model, List<String> features, String purchasedDate, String location, String sellerNotes) {
     this.condition = condition;
     this.model = model;
     this.features = features;
@@ -46,11 +46,11 @@ public class ItemSpecifics {
     this.features = features;
   }
 
-  public Long getPurchasedDate() {
+  public String getPurchasedDate() {
     return purchasedDate;
   }
 
-  public void setPurchasedDate(Long purchasedDate) {
+  public void setPurchasedDate(String purchasedDate) {
     this.purchasedDate = purchasedDate;
   }
 

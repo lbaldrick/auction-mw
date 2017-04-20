@@ -92,7 +92,4 @@ public class ItemCreateRequest {
   public void setSellerNotes(String sellerNotes) {
     this.sellerNotes = sellerNotes;
   }
-  
-  
-  
 }

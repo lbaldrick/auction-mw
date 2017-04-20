@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-
 public class SearchStoreIndex extends StoreIndex {
   
   private final ArrayList EXCLUDED_WORDS = new ArrayList(Arrays.asList(
