@@ -2,15 +2,15 @@ package com.baldrick.auction.store;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashMap;
 import java.util.Optional;
+import java.util.concurrent.ConcurrentHashMap;
 
 public class StoreIndex {
   
-  protected final HashMap<String, ArrayList<String>> index;
+  protected final ConcurrentHashMap<String, ArrayList<String>> index;
   
   public StoreIndex() {
-    this.index = new HashMap<>();
+    this.index = new ConcurrentHashMap<>();
   }
   
   public void add(String key, String value) {

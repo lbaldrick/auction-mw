@@ -1,29 +1,31 @@
 package com.baldrick.auction.store;
 
 import com.baldrick.auction.model.ItemAuctionDetails;
-import com.baldrick.auction.service.ItemRetriever;
+import com.baldrick.auction.service.ItemResolver;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
-import java.util.Map;
 import java.util.Optional;
+import java.util.concurrent.ConcurrentHashMap;
 
-public class ItemsStore {
-  
-  private final ItemRetriever retriever;
+public final class ItemsStore {
           
   private final SearchStoreIndex index;
   
-  private Map<String, ItemAuctionDetails> items;
+  private final ItemResolver itemResolver;
   
-  public ItemsStore(ItemRetriever retriever, SearchStoreIndex index) {
-    this.retriever = retriever;
+  private ConcurrentHashMap<String, ItemAuctionDetails> items;
+  
+  public ItemsStore(ItemResolver itemResolver, SearchStoreIndex index) {
     this.index = index;
+    this.itemResolver = itemResolver;
+    this.createStore(index, itemResolver);
   }
   
-  public void createStore() {
-    items = this.retriever.retrieveItems();
+  public void createStore(SearchStoreIndex index, ItemResolver itemResolver) {
+    this.items = itemResolver.retrieveItems();
+    index.createIndex(items.values());
   }
   
   public List<ItemAuctionDetails> search(String query) {
@@ -40,6 +42,11 @@ public class ItemsStore {
     });
     
     return results;
+  }
+  
+  public void addItemToStore(ItemAuctionDetails details) {
+    this.items.put(details.getId(), details);
+    this.index.addToIndex(details.getItemDetails().getDisplayName(), details);
   }
   
   private HashSet<String> getIds(ArrayList<String> queries) {

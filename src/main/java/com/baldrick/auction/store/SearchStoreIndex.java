@@ -3,7 +3,7 @@ package com.baldrick.auction.store;
 import com.baldrick.auction.model.ItemAuctionDetails;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
+import java.util.Collection;
 
 public class SearchStoreIndex extends StoreIndex {
   
@@ -14,7 +14,7 @@ public class SearchStoreIndex extends StoreIndex {
     "their",
     "by"));
  
-  public void createIndex(List<ItemAuctionDetails> details) {
+  public void createIndex(Collection<ItemAuctionDetails> details) {
     details.forEach((d) -> this.addToIndex(d.getItemDetails().getDisplayName(), d));
   }
   

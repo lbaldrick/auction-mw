@@ -21,7 +21,7 @@
       <beans:constructor-arg value="${mongodb.auction.collection}"/>
    </beans:bean>
    
-   <beans:bean id="itemRetriever" class="com.baldrick.auction.service.ItemRetriever">
+   <beans:bean id="itemResolver" class="com.baldrick.auction.service.ItemResolver">
       <beans:constructor-arg ref="mongodbItemAuctionDao"/>
    </beans:bean>
    
@@ -29,7 +29,7 @@
    </beans:bean>
    
    <beans:bean id="itemsStore" class="com.baldrick.auction.store.ItemsStore">
-      <beans:constructor-arg ref="itemRetriever"/>
+      <beans:constructor-arg ref="itemResolver"/>
       <beans:constructor-arg ref="searchStoreIndex"/>
    </beans:bean>
 </beans:beans>

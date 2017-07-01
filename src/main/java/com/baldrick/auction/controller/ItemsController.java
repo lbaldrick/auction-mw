@@ -2,8 +2,6 @@ package com.baldrick.auction.controller;
 
 import com.baldrick.auction.dto.ItemCreateRequest;
 import com.baldrick.auction.dto.ItemsSearchResponse;
-import com.baldrick.auction.model.Bid;
-import com.baldrick.auction.model.Feedback;
 import com.baldrick.auction.model.ItemAuctionDetails;
 import com.baldrick.auction.model.ItemDetails;
 import com.baldrick.auction.model.ItemSpecifics;
@@ -11,7 +9,6 @@ import com.baldrick.auction.model.User;
 import com.baldrick.auction.store.ItemsStore;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -48,7 +45,7 @@ public class ItemsController {
             item.getModel(), new ArrayList<>(), item.getPurchasedDate(), item.getLocation(), item.getSellerNotes());
     ItemDetails itemDetails = new ItemDetails("", item.getDescription(), item.getSummary(), specifics);
     ItemAuctionDetails auctionDetails = new ItemAuctionDetails(Integer.toString(id++), itemDetails, 0.0,  new Date().getTime() + 30000, item.getBuyNow(), new ArrayList<>(), user);
-  
+    this.itemsStore.addItemToStore(auctionDetails);
   }
 
 }

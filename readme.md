@@ -1,0 +1,1 @@
+Project I created to play about with the mongodb javarx driver

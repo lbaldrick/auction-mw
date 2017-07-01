@@ -4,21 +4,20 @@ import com.baldrick.auction.dao.ItemAuctionDao;
 import com.baldrick.auction.model.ItemAuctionDetails;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Optional;
+import java.util.concurrent.ConcurrentHashMap;
 import org.bson.Document;
 
-public class ItemRetriever {
+public class ItemResolver {
 
   private final ItemAuctionDao datasource;
 
-  public ItemRetriever(ItemAuctionDao datasource) {
+  public ItemResolver(ItemAuctionDao datasource) {
     this.datasource = datasource;
   }
 
-  public Map<String, ItemAuctionDetails> retrieveItems() {
-    Map<String, ItemAuctionDetails> items = new HashMap<>();
+  public ConcurrentHashMap<String, ItemAuctionDetails> retrieveItems() {
+    ConcurrentHashMap<String, ItemAuctionDetails> items = new ConcurrentHashMap<>();
     datasource.getAllAuctionItems()
             .toObservable()
             .toBlocking()
@@ -29,7 +28,11 @@ public class ItemRetriever {
     
     return items;
   }
-
+  
+  public void addItem(String id, ItemAuctionDetails details) {
+    datasource.createItem(details).ifPresent(o -> o.subscribe());
+  }
+  
   private Optional<ItemAuctionDetails> mapItems(Document bson) {
     ObjectMapper mapper = new ObjectMapper();
     ItemAuctionDetails details;
